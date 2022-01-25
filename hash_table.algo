@@ -1,0 +1,24 @@
+ALGORITHM hash_table
+VAR
+       htab : HASH_TABLE<INTEGER,INTEGER>;
+       i, count : INTEGER
+       set : ARRAY_OF INTEGER[];
+       sum: INTEGER := 0
+BEGIN
+    READ(set)
+    FOR i FROM 0 TO set.length - 1 STEP 1  DO
+        IF (htab.lookup(set[i]) = TRUE THEN
+            count := htab.get(set[i])
+            htab.insert(set[i], count + 1)
+        ELSE 
+            htab.insert(set[i], 1 )
+        END_IF
+    END_FOR
+
+
+    FOR i FROM 0 TO set.length - 1 STEP 1  DO
+        IF (htab.get(set[i] = 1)) THEN
+            sum += set[i]
+        END_IF
+    END_FOR
+END
